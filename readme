@@ -1,6 +1,14 @@
-Nationality Detection Model:  develop a machine learning model to predict the nationality of a person by uploading their image and predict their emotion.
-If the person’s nationality is Indian, the model should additionally predict their age and dress colour along with emotions.
-For individuals from the United States, the model should predict only their age and emotions. 
-For African individuals, the model should predict their emotion and dress colour.
-For other nationalities, the model should predict only their nationality and emotions.
+Age and Gender Detection Web App:
 
+A simple web app built with Streamlit that detects the age and gender of a person from an uploaded image or webcam input using a pre-trained deep learning model.
+
+![image](https://github.com/user-attachments/assets/4a1990da-676a-4b61-a50c-264debc7ec18)
+![image](https://github.com/user-attachments/assets/cdeefaa9-0d16-4308-b07f-1ca28d3a6193)
+
+
+ Features
+
+- Upload an image.
+- Real-time age and gender detection integrated with Nationality, emotion and dress color detection using OpenCV and CNN.
+- Web interface built with Streamlit.
+- Fast, lightweight, and easy to use.
