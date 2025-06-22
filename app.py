@@ -4,6 +4,7 @@ import numpy as np
 import cv2
 import os
 import tensorflow as tf
+from keras.src.legacy.saving import legacy_h5_format
 from tensorflow.keras.models import load_model
 from keras.models import load_model
 from sklearn.cluster import KMeans
@@ -81,11 +82,9 @@ st.markdown(
 # Function to load the model (with caching for performance)
 @st.cache_resource
 
-
-
 def load_emotion_model():
     try:
-        emotion_model_path = r"models\emotion_model.h5"
+        emotion_model_path = r"Task-3\models\emotion_model.h5"
         model = load_model(emotion_model_path)
         return model
     except Exception as e:
@@ -94,8 +93,10 @@ def load_emotion_model():
 
 def load_age_gender_model():
     try:
-        model_path = r"models\Age_Sex_Detection.h5"
-        model = load_model(model_path, compile=False)
+        model_path = r"Task-3\models\Age_Sex_Detection.h5"
+        model = legacy_h5_format.load_model_from_hdf5(
+            model_path, custom_objects={"mae": "mae"}
+        )
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
@@ -103,7 +104,7 @@ def load_age_gender_model():
 
 def load_nationality_model():
     try:
-        model_path = r"models\nationality_model.h5"  
+        model_path = r"Task-3\models\nationality_model.h5"  
         model = tf.keras.models.load_model(model_path)
         return model
     except Exception as e:
@@ -335,13 +336,11 @@ def main():
                     dress_color = None
                         
 
-                    if nationality == "Indian" or nationality == "African":
-                        if face_bbox is not None:
-                            dominant_color_rgb,dominant_color_name = get_dominant_dress_color(opencv_image, face_bbox)
-                            dress_color = dominant_color_name
-                        else:
-                            dress_color = "Not Detected"
-                        
+                    if face_bbox is not None:
+                        dominant_color_rgb, dominant_color_name = get_dominant_dress_color(opencv_image, face_bbox)
+                        dress_color = dominant_color_name
+                    else:
+                        dress_color = "Not Detected"
 
                     col2.markdown('<div class="sub-header">Results:</div>', unsafe_allow_html=True)
 
@@ -349,50 +348,32 @@ def main():
                         f'<div class="result-text" style="background-color: rgba(234, 88, 12, 0.1);">Emotion: {emotion}</div>',
                         unsafe_allow_html=True,
                     )
+
                     col2.markdown(
                         f'<div class="result-text" style="background-color: rgba(20, 184, 166, 0.1);">Nationality: {nationality}</div>',
                         unsafe_allow_html=True,
                     )
 
-                    if nationality == "Indian":
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba(37, 99, 235, 0.1);">Age: {age}</div>',
-                            unsafe_allow_html=True,
-                        )
-                        gender_color = "#9F7AEA" if gender == "Female" else "#4F46E5"
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba({", ".join(map(str, hex_to_rgb(gender_color)))}, 0.1);">'
-                            f"Gender: {gender}<br>"
-                            f"<small>Confidence: {confidence:.2%}</small>"
-                            f"</div>",
-                            unsafe_allow_html=True,
-                        )
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba(255, 223, 186, 0.3);">Dress Color: {dress_color}</div>',
-                            unsafe_allow_html=True,
-                        )
+                    col2.markdown(
+                        f'<div class="result-text" style="background-color: rgba(37, 99, 235, 0.1);">Age: {age}</div>',
+                        unsafe_allow_html=True,
+                    )
 
-                    elif nationality == "American":
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba(37, 99, 235, 0.1);">Age: {age}</div>',
-                            unsafe_allow_html=True,
-                        )
-                        gender_color = "#9F7AEA" if gender == "Female" else "#4F46E5"
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba({", ".join(map(str, hex_to_rgb(gender_color)))}, 0.1);">'
-                            f"Gender: {gender}<br>"
-                            f"<small>Confidence: {confidence:.2%}</small>"
-                            f"</div>",
-                            unsafe_allow_html=True,
-                        )
+                    gender_color = "#9F7AEA" if gender == "Female" else "#4F46E5"
+                    col2.markdown(
+                        f'<div class="result-text" style="background-color: rgba({", ".join(map(str, hex_to_rgb(gender_color)))}, 0.1);">'
+                        f"Gender: {gender}<br>"
+                        f"<small>Confidence: {confidence:.2%}</small>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
 
-                    elif nationality == "African":
-                        col2.markdown(
-                            f'<div class="result-text" style="background-color: rgba(255, 223, 186, 0.3);">Dress Color: {dress_color}</div>',
-                            unsafe_allow_html=True,
-                        )
+                    col2.markdown(
+                        f'<div class="result-text" style="background-color: rgba(255, 223, 186, 0.3);">Dress Color: {dress_color}</div>',
+                        unsafe_allow_html=True,
+                    )
 
-# No extra fields shown for other nationalities
+                    # No extra fields shown for other nationalities
 
 
                     if i < len(uploaded_files) - 1:
