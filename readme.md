@@ -7,12 +7,12 @@ This system leverages **semi-supervised learning** where a small labeled dataset
 ---
 
 ## Features  
-- ✅ Supports **labeled + unlabeled dataset integration**  
-- ✅ Generates **pseudo-labels** for unlabeled facial images  
-- ✅ Trains models for **Age, Gender, Emotion, and Ethnicity classification**  
-- ✅ Uses **semi-supervised learning** (Pseudo-Labeling, FixMatch style)  
-- ✅ Includes **Streamlit GUI** for interactive processing  
-- ✅ Outputs structured labeled datasets ready for further training  
+-  Supports **labeled + unlabeled dataset integration**  
+-  Generates **pseudo-labels** for unlabeled facial images  
+-  Trains models for **Age, Gender, Emotion, and Ethnicity classification**  
+-  Uses **semi-supervised learning** (Pseudo-Labeling, FixMatch style)  
+-  Includes **Streamlit GUI** for interactive processing  
+-  Outputs structured labeled datasets ready for further training  
 
 ---
 
