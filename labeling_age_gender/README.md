@@ -1,8 +1,8 @@
-# 🤖 Automatic Facial Image Labelling System
+#  Automatic Facial Image Labelling System
 
 A professional GUI application for automatic age and gender prediction from facial images using deep learning models trained with pseudo-labelling techniques.
 
-## 🚀 Features
+## Features
 
 - **Modern GUI Interface**: Clean, professional design with intuitive controls
 - **Single Image Analysis**: Upload and analyze individual images with detailed results
@@ -12,7 +12,7 @@ A professional GUI application for automatic age and gender prediction from faci
 - **Model Status Monitoring**: Real-time display of model loading and status
 - **Professional Styling**: Modern color scheme and responsive design
 
-## 🛠️ Installation
+##  Installation
 
 ### Prerequisites
 - Python 3.7 or higher
@@ -25,7 +25,7 @@ A professional GUI application for automatic age and gender prediction from faci
    pip install -r requirements.txt
    ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 labeling_age_gender/
@@ -36,7 +36,7 @@ labeling_age_gender/
 └── Automatic_image_labelling.ipynb  # Original training notebook
 ```
 
-## 🎯 Usage
+##  Usage
 
 ### Starting the Application
 ```bash
@@ -44,8 +44,8 @@ python facial_labelling_gui.py
 ```
 
 ### Single Image Analysis
-1. Click **"📁 Upload Image"** to select an image file
-2. Click **"🔍 Predict"** to analyze the image
+1. Click **" Upload Image"** to select an image file
+2. Click **" Predict"** to analyze the image
 3. View detailed results including:
    - Predicted age
    - Predicted gender
@@ -53,10 +53,10 @@ python facial_labelling_gui.py
    - Raw model outputs
 
 ### Batch Processing
-1. Click **"📊 Batch Process"** to select a folder of images
+1. Click **" Batch Process"** to select a folder of images
 2. Monitor progress with the progress bar
 3. View results in the "Batch Results" tab
-4. Export results using **"📥 Export Results"**
+4. Export results using **" Export Results"**
 
 ### Supported Image Formats
 - JPEG (.jpg, .jpeg)
@@ -80,7 +80,7 @@ The system uses a small amount of manually labelled data combined with predictio
 - **Gender Prediction**: Binary accuracy
 - **Model Validation**: 20% test split with cross-validation
 
-## 📊 Results Interpretation
+##  Results Interpretation
 
 ### Age Prediction
 - Output: Integer age in years (0-100)
@@ -91,7 +91,7 @@ The system uses a small amount of manually labelled data combined with predictio
 - Confidence: Probability score (0.0-1.0)
 - Threshold: 0.5 (above = Male, below = Female)
 
-## 🚨 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -113,7 +113,7 @@ The system uses a small amount of manually labelled data combined with predictio
 - Close unnecessary applications during batch processing
 - Process images in smaller batches for large datasets
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - [ ] Emotion recognition integration
 - [ ] Ethnicity prediction
