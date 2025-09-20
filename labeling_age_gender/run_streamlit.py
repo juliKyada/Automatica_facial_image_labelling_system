@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+  #!/usr/bin/env python3
 """
 Launcher script for the Automatic Facial Image Labelling System (Streamlit GUI)
 """
