@@ -32,7 +32,7 @@ def install_dependencies():
     """Install missing dependencies"""
     print("Installing required dependencies...")
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements_streamlit.txt"])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
         print("Dependencies installed successfully!")
         return True
     except subprocess.CalledProcessError:
