@@ -21,8 +21,26 @@ NATIONALITY_MODEL_PATHS = [
     "nationality_model.h5",
     "ethnicity_model.h5"
 ]
+# Emotion model paths
+EMOTION_MODEL_PATHS = [
+    "emotion_model.h5",
+    "models/emotion_model.h5",
+    "emotion_recognition_model.h5",
+    "emotion_classifier.h5"
+]
 MODEL_INPUT_SIZE = (48, 48)  # Width, Height
 MODEL_BATCH_SIZE = 1
+
+# Emotion classes (common emotion labels)
+EMOTION_CLASSES = [
+    "Angry",
+    "Disgust", 
+    "Fear",
+    "Happy",
+    "Sad",
+    "Surprise",
+    "Neutral"
+]
 
 # Image Settings
 SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.bmp', '.tiff']
