@@ -1,0 +1,14 @@
+# Ignore large model files from deployment (if using external storage)
+# *.h5
+# *.hdf5
+
+# Development files
+*.ipynb
+__pycache__/
+*.pyc
+.python-version
+
+# Documentation
+*.md
+!README_VERCEL.md
+

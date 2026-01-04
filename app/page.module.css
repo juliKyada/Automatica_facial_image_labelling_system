@@ -1,0 +1,11 @@
+.container {
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.main {
+  margin-top: 3rem;
+}
